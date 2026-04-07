@@ -16,12 +16,12 @@ It currently ships:
 ```json
 {
   "dependencies": {
-    "@saroj-parajuli/spsdesign": "file:../packages/spsdesign"
+    "@saroj-parajuli/spsdesign": "file:../design"
   }
 }
 ```
 
-Then run `npm install` in the consuming project.
+Then run `npm install` in the consuming project. If your local clone lives elsewhere, replace `../design` with the correct relative path to this repository.
 
 ### GitHub usage
 
@@ -82,7 +82,7 @@ Current package name:
 "name": "@saroj-parajuli/spsdesign"
 ```
 
-If you do not own the `@sps` scope on npm, rename the package before publishing.
+If you do not own the `@saroj-parajuli` scope on npm, rename the package before publishing.
 
 ### Validate the package contents
 
