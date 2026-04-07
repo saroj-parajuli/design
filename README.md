@@ -23,6 +23,26 @@ It currently ships:
 
 Then run `npm install` in the consuming project.
 
+### GitHub usage
+
+```json
+{
+  "dependencies": {
+    "@sps/spsdesign": "git+https://github.com/saroj-parajuli/design.git#main"
+  }
+}
+```
+
+For SSH-based installs:
+
+```json
+{
+  "dependencies": {
+    "@sps/spsdesign": "git+ssh://git@github.com/saroj-parajuli/design.git#main"
+  }
+}
+```
+
 ## Use
 
 ### MUI exports
