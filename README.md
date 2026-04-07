@@ -71,3 +71,32 @@ npm run build
 ```
 
 The build outputs TypeScript bundles to `dist/` and copies the raw Sass assets to `dist/sass/`.
+
+## Publish To npm
+
+Before publishing, confirm that you own the npm scope used by the package name.
+
+Current package name:
+
+```json
+"name": "@sps/spsdesign"
+```
+
+If you do not own the `@sps` scope on npm, rename the package before publishing.
+
+### Validate the package contents
+
+```bash
+npm run build
+npm pack
+```
+
+### Publish
+
+```bash
+npm login
+npm whoami
+npm publish --access public
+```
+
+Because the package is scoped, public publishing requires `--access public`.

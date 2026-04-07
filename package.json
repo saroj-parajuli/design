@@ -2,16 +2,36 @@
   "name": "@sps/spsdesign",
   "version": "0.1.0",
   "description": "Shared SPS design system package with MUI exports, theme helpers, animations, and Sass assets.",
+  "license": "MIT",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saroj-parajuli/design.git"
+  },
+  "homepage": "https://github.com/saroj-parajuli/design#readme",
+  "bugs": {
+    "url": "https://github.com/saroj-parajuli/design/issues"
+  },
+  "keywords": [
+    "design-system",
+    "mui",
+    "react",
+    "sass",
+    "theme",
+    "sps"
+  ],
   "files": [
     "dist"
   ],
   "sideEffects": [
     "**/*.scss"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -40,7 +60,8 @@
   "scripts": {
     "clean": "rm -rf dist",
     "build": "npm run clean && tsup && cp -R src/sass dist/sass",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
     "@emotion/react": "^11.14.0",
