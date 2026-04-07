@@ -1,5 +1,5 @@
 {
-  "name": "@sps/spsdesign",
+  "name": "@saroj-parajuli/spsdesign",
   "version": "0.1.0",
   "description": "Shared SPS design system package with MUI exports, theme helpers, animations, and Sass assets.",
   "license": "MIT",

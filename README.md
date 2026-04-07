@@ -1,6 +1,6 @@
 # SPSDESIGN
 
-`@sps/spsdesign` is the shared SPS design system package extracted from the auth app design folder.
+`@saroj-parajuli/spsdesign` is the shared SPS design system package extracted from the auth app design folder.
 
 It currently ships:
 
@@ -16,7 +16,7 @@ It currently ships:
 ```json
 {
   "dependencies": {
-    "@sps/spsdesign": "file:../packages/spsdesign"
+    "@saroj-parajuli/spsdesign": "file:../packages/spsdesign"
   }
 }
 ```
@@ -28,7 +28,7 @@ Then run `npm install` in the consuming project.
 ```json
 {
   "dependencies": {
-    "@sps/spsdesign": "git+https://github.com/saroj-parajuli/design.git#main"
+    "@saroj-parajuli/spsdesign": "git+https://github.com/saroj-parajuli/design.git#main"
   }
 }
 ```
@@ -38,7 +38,7 @@ For SSH-based installs:
 ```json
 {
   "dependencies": {
-    "@sps/spsdesign": "git+ssh://git@github.com/saroj-parajuli/design.git#main"
+    "@saroj-parajuli/spsdesign": "git+ssh://git@github.com/saroj-parajuli/design.git#main"
   }
 }
 ```
@@ -48,19 +48,19 @@ For SSH-based installs:
 ### MUI exports
 
 ```ts
-import { Box, Button, Typography } from '@sps/spsdesign/mui';
+import { Box, Button, Typography } from '@saroj-parajuli/spsdesign/mui';
 ```
 
 ### Theme exports
 
 ```ts
-import { ThemeProvider, CssBaseline, theme } from '@sps/spsdesign/theme';
+import { ThemeProvider, CssBaseline, theme } from '@saroj-parajuli/spsdesign/theme';
 ```
 
 ### Sass entrypoint
 
 ```scss
-@use '@sps/spsdesign/sass' as *;
+@use '@saroj-parajuli/spsdesign/sass' as *;
 ```
 
 ## Build
@@ -79,7 +79,7 @@ Before publishing, confirm that you own the npm scope used by the package name.
 Current package name:
 
 ```json
-"name": "@sps/spsdesign"
+"name": "@saroj-parajuli/spsdesign"
 ```
 
 If you do not own the `@sps` scope on npm, rename the package before publishing.
