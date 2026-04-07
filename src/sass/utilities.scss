@@ -1,0 +1,547 @@
+// =============================================================================
+// UTILITIES STYLESHEET
+// Material Design 3 compliant utility classes for rapid styling
+// =============================================================================
+
+@use 'sass:map';
+@use './variables' as *;
+@use './mixin';
+@use './tokens' as *;
+
+// =============================================================================
+// LAYOUT UTILITIES (COMPACT)
+// Container and padding utilities using design tokens
+// =============================================================================
+
+.container {
+  margin: 0 auto;
+  max-width: var(--container-max-width-xl);
+  padding: 0 var(--spacing-lg);
+
+  @media (max-width: 768px) {
+    max-width: var(--container-max-width-sm);
+    padding: 0 var(--spacing-md);
+  }
+}
+
+// =============================================================================
+// BUTTON UTILITIES
+// Note: Primary button styles defined in global-components.scss
+// Only utility variants defined here for rapid styling
+// =============================================================================
+
+/* Legacy: Use .btn instead */
+.btn1 {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 25px;
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff;
+  transition: border-color var(--timing-transition-fast) ease;
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--color-secondary, #764ba2);
+  }
+}
+
+/* Common section headings */
+.common-heading {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: var(--spacing-2xl);
+
+  .title {
+    color: var(--color-primary);
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .description {
+    color: var(--color-text-secondary);
+    padding: var(--spacing-md);
+
+    &.type-white {
+      color: #DDDDDD;
+    }
+  }
+}
+
+// =============================================================================
+// CARD & COMPONENT UTILITIES
+// Card styling with interactive and specialized variants
+// =============================================================================
+
+.card {
+  @include mixin.card-base;
+
+  /* Interactive card with hover effects */
+  &--interactive {
+    cursor: pointer;
+    transition: box-shadow var(--timing-transition-standard) ease;
+
+    &:hover {
+      @include mixin.card-hover-effect;
+    }
+  }
+
+  /* Service card variant - centered content with icon */
+  &--service {
+    text-align: center;
+    padding: var(--space-xl);
+
+    .card__icon {
+      font-size: var(--font-size-4xl);
+      margin-bottom: var(--spacing-md);
+      color: var(--color-primary);
+    }
+
+    .card__title {
+      font-weight: var(--font-weight-semibold);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .card__description {
+      color: var(--color-text-secondary);
+      font-size: var(--font-size-sm);
+    }
+  }
+}
+
+// =============================================================================
+// GRID UTILITIES
+// Responsive grid layouts with auto-fit and responsive column classes
+// =============================================================================
+
+.grid {
+  display: grid;
+  gap: var(--space-md);
+
+  /* Responsive grid with larger gaps */
+  &--responsive {
+    gap: var(--space-lg);
+    @include mixin.grid-responsive(3, var(--space-lg));
+  }
+}
+
+/* Fixed column grids (1-12 columns) */
+@for $i from 1 through 12 {
+  .grid-cols-#{$i} {
+    grid-template-columns: repeat($i, 1fr);
+  }
+}
+
+/* Auto-fit grid with 250px minimum */
+.grid-auto-fit {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Auto-fit grid with 200px minimum (for tighter layouts) */
+.grid-auto-fit-sm {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* Auto-fit grid with 300px minimum (for larger cards) */
+.grid-auto-fit-lg {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Responsive breakpoint-based column grids */
+@each $breakpoint in map.keys($breakpoints) {
+  @include mixin.respond-to($breakpoint) {
+    @for $i from 1 through 12 {
+      .grid-#{$breakpoint}-cols-#{$i} {
+        grid-template-columns: repeat($i, 1fr);
+      }
+    }
+  }
+}
+
+// =============================================================================
+// ANIMATION & TRANSITION UTILITIES
+// Keyframes and animation classes with Material Design 3 timing
+// =============================================================================
+
+/* Fade in with upward motion - common entrance animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(var(--spacing-lg));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate--fade-up {
+  animation: fadeInUp var(--timing-transition-standard) ease-out forwards;
+  opacity: 0;
+}
+
+/* Staggered animation delays for sequential element animations */
+@for $i from 1 through 3 {
+  .animate--delay-#{$i} {
+    animation-delay: #{$i * 100}ms;
+  }
+}
+
+// =============================================================================
+// SPACING UTILITIES (COMPACT - using SCSS loops)
+// Responsive padding and margin utilities from design tokens
+// =============================================================================
+
+$spacing-sizes: ('xs': var(--spacing-xs), 'sm': var(--spacing-sm), 'md': var(--spacing-md), 'lg': var(--spacing-lg), 'xl': var(--spacing-xl));
+
+// Margin utilities
+.m-0 { margin: 0; }
+@each $size, $value in $spacing-sizes {
+  .m-#{$size} { margin: #{$value}; }
+  .mt-#{$size} { margin-top: #{$value}; }
+  .mb-#{$size} { margin-bottom: #{$value}; }
+  .ml-#{$size} { margin-left: #{$value}; }
+  .mr-#{$size} { margin-right: #{$value}; }
+  .mx-#{$size} { margin-left: #{$value}; margin-right: #{$value}; }
+  .my-#{$size} { margin-top: #{$value}; margin-bottom: #{$value}; }
+}
+.mx-auto { margin-left: auto; margin-right: auto; }
+.ml-auto { margin-left: auto; }
+.mr-auto { margin-right: auto; }
+
+// Padding utilities
+.p-0 { padding: 0; }
+@each $size, $value in $spacing-sizes {
+  .p-#{$size} { padding: #{$value}; }
+  .pt-#{$size} { padding-top: #{$value}; }
+  .pb-#{$size} { padding-bottom: #{$value}; }
+  .pl-#{$size} { padding-left: #{$value}; }
+  .pr-#{$size} { padding-right: #{$value}; }
+  .px-#{$size} { padding-left: #{$value}; padding-right: #{$value}; }
+  .py-#{$size} { padding-top: #{$value}; padding-bottom: #{$value}; }
+}
+
+// Gap utilities (for flex & grid)
+@each $size, $value in $spacing-sizes {
+  .gap-#{$size} { gap: #{$value}; }
+}
+
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+.pt-0 { padding-top: 0; }
+.pb-0 { padding-bottom: 0; }
+.pl-0 { padding-left: 0; }
+.pr-0 { padding-right: 0; }
+.px-0 { padding-left: 0; padding-right: 0; }
+.py-0 { padding-top: 0; padding-bottom: 0; }
+.my-0 { margin-top: 0; margin-bottom: 0; }
+.mx-0 { margin-left: 0; margin-right: 0; }
+
+// =============================================================================
+// TYPOGRAPHY UTILITY CLASSES
+// Font, text alignment, and text transform utilities from design tokens
+// =============================================================================
+
+/* Font family utilities */
+.font-system {
+  font-family: var(--font-family-system);
+}
+
+.font-mono {
+  font-family: var(--font-family-mono);
+}
+
+/* Font weight utilities from design tokens */
+@each $name, $weight in $font-weights {
+  .font-#{$name} {
+    font-weight: $weight;
+  }
+}
+
+/* Font size utilities from design tokens */
+@each $name, $size in $font-sizes {
+  .text-#{$name} {
+    font-size: $size;
+  }
+}
+
+/* Line height / leading utilities */
+@each $name, $height in $line-heights {
+  .leading-#{$name} {
+    line-height: $height;
+  }
+}
+
+/* Letter spacing / tracking utilities */
+@each $name, $spacing in $letter-spacings {
+  .tracking-#{$name} {
+    letter-spacing: $spacing;
+  }
+}
+
+// =============================================================================
+// TEXT TRANSFORM UTILITIES
+// =============================================================================
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.normal-case {
+  text-transform: none;
+}
+
+// =============================================================================
+// TEXT ALIGNMENT UTILITIES
+// =============================================================================
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+// =============================================================================
+// TEXT DECORATION & EFFECT UTILITIES
+// =============================================================================
+
+.underline {
+  text-decoration: underline;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+/* Italic text */
+.italic {
+  font-style: italic;
+}
+
+/* Normal font style */
+.not-italic {
+  font-style: normal;
+}
+
+/* Disable text selection */
+.select-none {
+  user-select: none;
+}
+
+/* Enable text selection */
+.select-text {
+  user-select: text;
+}
+
+/* Truncate text with ellipsis */
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Multi-line text ellipsis */
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+// =============================================================================
+// DISPLAY & VISIBILITY UTILITIES
+// Control visibility and display behavior
+// =============================================================================
+
+/* Display utilities */
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.inline {
+  display: inline;
+}
+
+.flex {
+  display: flex;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Visibility - hide visually but keep in DOM for screen readers */
+.invisible {
+  visibility: hidden;
+}
+
+/* Responsive display utilities */
+@media (max-width: 768px) {
+  .hidden-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .hidden-tablet {
+    display: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hidden-desktop {
+    display: none;
+  }
+}
+
+// =============================================================================
+// OPACITY UTILITIES
+// =============================================================================
+
+.opacity-0 { opacity: 0; }
+.opacity-25 { opacity: 0.25; }
+.opacity-50 { opacity: 0.5; }
+.opacity-75 { opacity: 0.75; }
+.opacity-100 { opacity: 1; }
+
+// =============================================================================
+// BORDER & RADIUS UTILITIES
+// =============================================================================
+
+/* Border radius utilities */
+.rounded-none {
+  border-radius: 0;
+}
+
+.rounded-sm {
+  border-radius: var(--radius-sm);
+}
+
+.rounded {
+  border-radius: var(--radius-md);
+}
+
+.rounded-md {
+  border-radius: var(--radius-md);
+}
+
+.rounded-lg {
+  border-radius: var(--radius-lg);
+}
+
+.rounded-xl {
+  border-radius: var(--radius-xl);
+}
+
+.rounded-full {
+  border-radius: var(--radius-full);
+}
+
+/* Border utilities */
+.border {
+  border: 1px solid var(--color-border);
+}
+
+.border-top {
+  border-top: 1px solid var(--color-border);
+}
+
+.border-bottom {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.border-left {
+  border-left: 1px solid var(--color-border);
+}
+
+.border-right {
+  border-right: 1px solid var(--color-border);
+}
+
+// =============================================================================
+// SHADOW UTILITIES
+// =============================================================================
+
+.shadow-none {
+  box-shadow: none;
+}
+
+.shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+
+.shadow {
+  box-shadow: var(--shadow-md);
+}
+
+.shadow-md {
+  box-shadow: var(--shadow-md);
+}
+
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+// =============================================================================
+// ACCESSIBILITY UTILITIES
+// =============================================================================
+
+/* Screen reader only text - visually hidden but available to assistive technology */
+.sr-only {
+  @include mixin.sr-only;
+}
+
+/* Screen reader only focusable - becomes visible on keyboard focus */
+.sr-only-focusable {
+  @include mixin.sr-only-focusable;
+}
+
+/* Optimal line length for readability - 75 characters */
+.prose {
+  max-width: 75ch;
+}

@@ -1,0 +1,301 @@
+// =============================================================================
+// TYPOGRAPHY STYLES
+// Material Design 3 compliant text styles using design tokens
+// Uses mixins from mixin.scss and tokens from tokens.scss
+// =============================================================================
+
+@use './mixin' as *;
+
+// =============================================================================
+// BASE STYLES
+// =============================================================================
+
+body {
+  @include body-1;
+  @include smooth-font;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text);
+  font-family: var(--font-family-system);
+  line-height: var(--line-height-normal);
+}
+
+// =============================================================================
+// HEADING STYLES (h1-h6)
+// Material Design 3 heading scale with semantic styling
+// =============================================================================
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 var(--spacing-md) 0;
+  font-family: var(--font-family-system);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-primary);
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* h1 - Display / Hero heading */
+h1 {
+  @include heading-1;
+  font-size: var(--font-size-4xl);
+  margin-top: var(--spacing-lg);
+
+  @media (max-width: 768px) {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+/* h2 - Large heading / Section heading */
+h2 {
+  @include heading-2;
+  font-size: var(--font-size-3xl);
+  margin-top: var(--spacing-lg);
+
+  @media (max-width: 768px) {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+/* h3 - Medium heading / Subsection */
+h3 {
+  @include heading-3;
+  font-size: var(--font-size-2xl);
+  margin-top: var(--spacing-md);
+}
+
+/* h4 - Small heading / Card title */
+h4 {
+  @include heading-4;
+  font-size: var(--font-size-xl);
+  margin-top: var(--spacing-sm);
+}
+
+/* h5 - Extra small heading / Label */
+h5 {
+  @include heading-5;
+  font-size: var(--font-size-lg);
+  margin-top: var(--spacing-sm);
+}
+
+/* h6 - Smallest heading / Meta */
+h6 {
+  @include heading-6;
+  font-size: var(--font-size-base);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  margin-top: var(--spacing-sm);
+}
+
+// =============================================================================
+// PARAGRAPH & TEXT STYLES
+// =============================================================================
+
+p {
+  @include body-1;
+  margin: 0 0 var(--spacing-md) 0;
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text);
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Small text / Caption / Helper text */
+small,
+.text-small {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-snug);
+  color: var(--color-text-secondary);
+}
+
+/* Alternative paragraph styles */
+.lead {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-md);
+}
+
+// =============================================================================
+// INLINE & SEMANTIC TEXT ELEMENTS
+// =============================================================================
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--timing-transition-fast) ease;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--color-primary-light);
+    text-decoration: underline;
+  }
+
+  &:active {
+    color: var(--color-primary-dark);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+}
+
+strong,
+b {
+  font-weight: var(--font-weight-bold);
+  color: inherit;
+}
+
+em,
+i {
+  font-style: italic;
+  color: inherit;
+}
+
+mark {
+  background-color: rgba(255, 193, 7, 0.3);
+  padding: 0 0.25em;
+  border-radius: 2px;
+  color: inherit;
+}
+
+del {
+  text-decoration: line-through;
+  color: var(--color-danger);
+  opacity: 0.7;
+}
+
+ins {
+  text-decoration: underline;
+  text-decoration-color: var(--color-success);
+  background-color: transparent;
+  color: inherit;
+}
+
+// =============================================================================
+// CODE & MONOSPACE STYLES
+// =============================================================================
+
+code {
+  @include code-text;
+  padding: 0.2em 0.4em;
+  background-color: var(--color-surface-variant);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-family-mono);
+  font-size: 0.9em;
+  color: var(--color-primary);
+  word-break: break-word;
+  white-space: normal;
+}
+
+pre {
+  @include code-text;
+  display: block;
+  padding: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow-x: auto;
+  font-family: var(--font-family-mono);
+  line-height: var(--line-height-snug);
+
+  code {
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
+    color: inherit;
+    font-size: inherit;
+  }
+
+  /* Syntax highlighting compatibility */
+  .comment { color: rgba(255, 255, 255, 0.5); }
+  .string { color: #a3ff60; }
+  .number { color: #ff9d76; }
+  .literal { color: #ff9d76; }
+  .attr-name { color: #a3ff60; }
+  .attr-value { color: #a3ff60; }
+  .tag { color: #ff6d58; }
+  .selector { color: #4791ff; }
+  .keyword { color: #ff6d58; }
+}
+
+// =============================================================================
+// BLOCKQUOTE & QUOTATION STYLES
+// =============================================================================
+
+blockquote {
+  margin: var(--spacing-md) 0;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-left: 4px solid var(--color-primary);
+  background-color: rgba(15, 15, 54, 0.05);
+  font-style: italic;
+  color: var(--color-text-secondary);
+
+  p {
+    margin: 0;
+
+    &:not(:last-child) {
+      margin-bottom: var(--spacing-sm);
+    }
+  }
+
+  cite {
+    display: block;
+    margin-top: var(--spacing-sm);
+    font-style: normal;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+    font-size: 0.9em;
+
+    &::before {
+      content: '— ';
+    }
+  }
+}
+
+// =============================================================================
+// LIST STYLES
+// =============================================================================
+
+ul, ol {
+  margin: var(--spacing-md) 0;
+  padding-left: var(--spacing-lg);
+  color: var(--color-text);
+  line-height: var(--line-height-relaxed);
+
+  li {
+    margin-bottom: var(--spacing-sm);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+dl {
+  margin: var(--spacing-md) 0;
+
+  dt {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+  }
+
+  dd {
+    margin: 0 0 var(--spacing-md) var(--spacing-lg);
+    color: var(--color-text-secondary);
+  }
+}
+
+// =============================================================================
+// HORIZONTAL RULE
+// =============================================================================
+
+hr {
+  margin: var(--spacing-lg) 0;
+  border: none;
+  border-top: 1px solid var(--color-border);
+  opacity: 0.5;
+}

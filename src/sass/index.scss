@@ -1,0 +1,17 @@
+// ==========================================================================
+//  DESIGN SYSTEM ENTRY POINT – 2025 Production Ready
+//  Angular 18+ / Material 18+ / Dark-Mode / Fluid / Accessible
+// ==========================================================================
+
+// 1. CORE TOKENS & VARIABLES (must come first)
+// ───────────────────────────────────────────────
+@forward 'material-bridge'; // Material Design theme integration bridge
+@forward 'tokens';        // Material Design Color/Shape/Density tokens
+@forward 'variables';     // --color-primary, --space-md, --radius-lg, etc.
+@forward 'mixin';         // Common mixins (includes section-mixins)
+@forward 'animations';   // Centralized animations and keyframes
+@forward 'utilities';     // Utility classes (includes common utilities)
+@forward 'typography';    // Typography styles
+@forward 'functions';     // SCSS functions
+@forward 'global-components'; // Global component styles
+@use 'about-stats';

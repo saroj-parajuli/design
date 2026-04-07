@@ -1,0 +1,154 @@
+// =============================================================================
+// ANIMATIONS & TRANSITIONS (COMPACT)
+// Material Design 3 compliant, minimal duplication, faster interactions
+// =============================================================================
+
+@use './variables' as var;
+@use 'sass:math';
+
+// =============================================================================
+// TIMING FUNCTIONS (MD3 Standard)
+// =============================================================================
+
+$easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+$easing-decelerate: cubic-bezier(0, 0, 0.2, 1);
+$easing-accelerate: cubic-bezier(0.4, 0, 1, 1);
+$easing-sharp: cubic-bezier(0.4, 0, 0.6, 1);
+
+$duration-short: 150ms;
+$duration-base: 250ms;
+$duration-long: 400ms;
+
+// =============================================================================
+// CORE ANIMATIONS (No redundancy)
+// =============================================================================
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes rotate360 {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+// =============================================================================
+// SCROLLBAR ANIMATIONS (Compact)
+// =============================================================================
+
+@keyframes scrollArrowBounce {
+  0%, 100% { opacity: 0; transform: translateY(0); }
+  30%, 60% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(20px); }
+}
+
+// =============================================================================
+// UTILITY ANIMATION CLASSES
+// =============================================================================
+
+.animate--fade-in { animation: fadeIn $duration-base $easing-decelerate; }
+.animate--fade-out { animation: fadeOut $duration-base $easing-decelerate; }
+.animate--slide-up { animation: slideInUp $duration-base $easing-decelerate; }
+.animate--slide-down { animation: slideInDown $duration-base $easing-decelerate; }
+.animate--slide-left { animation: slideInLeft $duration-base $easing-decelerate; }
+.animate--slide-right { animation: slideInRight $duration-base $easing-decelerate; }
+.animate--scale-in { animation: scaleIn $duration-base $easing-decelerate; }
+.animate--rotate { animation: rotate360 1s linear infinite; }
+.animate--pulse { animation: pulse 2s $easing-sharp infinite; }
+.animate--bounce { animation: bounce 1s ease-in-out infinite; }
+.animate--shimmer { animation: shimmer 2s linear infinite; }
+.animate--gradient { animation: gradientShift 3s $easing-standard infinite; }
+
+// Animation delay modifiers (compact)
+@for $i from 1 through 6 {
+  .animate--delay-#{$i * 50}ms { animation-delay: #{$i * 50}ms; }
+}
+
+// Animation duration modifiers
+.animate--short { animation-duration: $duration-short; }
+.animate--base { animation-duration: $duration-base; }
+.animate--long { animation-duration: $duration-long; }
+
+// Animation fill modes
+.animate--forwards { animation-fill-mode: forwards; }
+.animate--backwards { animation-fill-mode: backwards; }
+.animate--both { animation-fill-mode: both; }
+
+// Animation direction
+.animate--reverse { animation-direction: reverse; }
+.animate--alternate { animation-direction: alternate; }
+
+// Animation timing functions
+.animate--ease-standard { animation-timing-function: $easing-standard; }
+.animate--ease-decelerate { animation-timing-function: $easing-decelerate; }
+.animate--ease-accelerate { animation-timing-function: $easing-accelerate; }
+.animate--ease-sharp { animation-timing-function: $easing-sharp; }
+
+// Pause animations
+.animate--paused { animation-play-state: paused; }
+
+// =============================================================================
+// ACCESSIBILITY - RESPECT MOTION PREFERENCES
+// =============================================================================
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,392 @@
+// =============================================================================
+// CSS CUSTOM PROPERTIES (TOKENS)
+// Material Design 3 tokens + design system values
+// NOTE: Material theme colors injected by material-bridge.scss
+// =============================================================================
+
+:root {
+  // ===========================================================================
+  // COLOR TOKENS
+  // Primary colors from Material theme (generated in styles.scss)
+  // ===========================================================================
+
+  /* Brand Color - #0f0f36 (defined as Material primary in styles.scss) */
+  --color-primary:          #0f0f36;
+  --color-primary-light:    #4791ff;
+  --color-primary-dark:     #0f0f36;
+
+  /* Accent & Warn */
+  --color-accent:           #ff4081;
+  --color-accent-light:     #ff79b0;
+  --color-accent-dark:      #c60055;
+  --color-warn:             #f44336;
+
+  /* Semantic Colors - Status & Feedback */
+  --color-success:          #28a745;
+  --color-danger:           #dc3545;
+  --color-warning:          #ffc107;
+  --color-info:             #17a2b8;
+
+  /* Legacy Palette (maintained for backward compatibility) */
+  --color-light:            #f8f9fa;
+  --color-dark:             #343a40;
+
+  /* Surface & Background Colors */
+  --color-bg-primary:       #0f0f1e;
+  --color-bg-secondary:     #1a1a2e;
+  --color-surface:          #ffffff;
+  --color-surface-variant:  #f5f5f5;
+  --color-surface-light:    #ffffff;
+
+  /* Text Colors */
+  --color-text:             #3f51b5;
+  --color-text-light:       #3f51b5;
+  --color-text-secondary:   rgba(63, 81, 181, 0.7);
+  --color-text-secondary-light: rgba(63, 81, 181, 0.6);
+
+  /* Border & Divider */
+  --color-border:           rgba(255, 255, 255, 0.12);
+  --color-divider:          rgba(255, 255, 255, 0.08);
+
+  /* Accessibility - Contrast Colors */
+  --color-contrast-primary: #0052cc;
+  --color-contrast-text-on-white: #212529;
+  --color-contrast-text-on-primary: #ffffff;
+  --color-contrast-border: #dee2e6;
+
+  /* State Colors - Containers & text on containers */
+  --color-success-container: #d4edda;
+  --color-on-success-container: #155724;
+  --color-error-container: #f8d7da;
+  --color-on-error-container: #721c24;
+
+  /* RGB values for dynamic opacity (for Material tokens) */
+  --color-primary-rgb: 63, 81, 181;     /* #3f51b5 */
+  --color-accent-rgb: 255, 64, 129;    /* #ff4081 */
+  --color-text-rgb: 63, 81, 181;        /* #3f51b5 (primary typography) */
+
+  // ===========================================================================
+  // TYPOGRAPHY TOKENS
+  // ===========================================================================
+
+  /* Font Families */
+  --font-family-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-family-mono: "Fira Code", Menlo, monospace;
+  --mat-font-family-mono: var(--font-family-mono);
+
+  /* Font Weights */
+  --font-weight-thin:       100;
+  --font-weight-extralight: 200;
+  --font-weight-light:      300;
+  --font-weight-regular:    400;
+  --font-weight-medium:     500;
+  --font-weight-semibold:   600;
+  --font-weight-bold:       700;
+  --font-weight-extrabold:  800;
+  --font-weight-black:      900;
+
+  /* Font Sizes - Static Scale */
+  --font-size-xs:   0.75rem;   /* 12px */
+  --font-size-sm:   0.875rem;  /* 14px */
+  --font-size-base: 1rem;      /* 16px */
+  --font-size-md:   1rem;
+  --font-size-lg:   1.125rem;  /* 18px */
+  --font-size-xl:   1.25rem;   /* 20px */
+  --font-size-2xl:  1.5rem;    /* 24px */
+  --font-size-3xl:  1.875rem;  /* 30px */
+  --font-size-4xl:  2.25rem;   /* 36px */
+  --font-size-5xl:  3rem;      /* 48px */
+  --font-size-6xl:  3.75rem;   /* 60px */
+
+  /* Font Sizes - Fluid Responsive */
+  --text-xs: clamp(0.75rem, 2.5vw, 0.875rem);
+  --text-sm: clamp(0.875rem, 2.8vw, 1rem);
+  --text-base: clamp(1rem, 3vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 3.5vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 4vw, 1.5rem);
+  --text-xxl: clamp(1.5rem, 5vw, 2rem);
+  --text-xxxl: clamp(2rem, 6vw, 3rem);
+  --text-display: clamp(2.5rem, 8vw, 5rem);
+
+  /* Line Heights */
+  --line-height-none:    1;
+  --line-height-tight:   1.25;
+  --line-height-snug:    1.375;
+  --line-height-normal:  1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose:   2;
+
+  /* Letter Spacing */
+  --letter-spacing-tighter:   -0.05em;
+  --letter-spacing-tight:     -0.025em;
+  --letter-spacing-normal:    0;
+  --letter-spacing-wide:      0.025em;
+  --letter-spacing-wider:     0.05em;
+  --letter-spacing-widest:    0.1em;
+  --letter-spacing-extra-wide: 0.15em;
+
+  // ===========================================================================
+  // SPACING TOKENS
+  // ===========================================================================
+
+  /* Spacing Scale - Static */
+  --spacing-none: 0;
+  --spacing-xs:   0.25rem;  /* 4px */
+  --spacing-sm:   0.5rem;   /* 8px */
+  --spacing-md:   0.75rem;  /* 12px */
+  --spacing-lg:   1rem;     /* 16px */
+  --spacing-xl:   1.5rem;   /* 24px */
+  --spacing-xxl:  2rem;     /* 32px */
+  --spacing-xxxl: 3rem;     /* 48px */
+
+  /* Spacing Scale - Fluid Responsive */
+  --space-xs:  clamp(0.25rem, 0.2rem + 0.3vw, 0.5rem);
+  --space-sm:  clamp(0.5rem,  0.4rem + 0.6vw, 1rem);
+  --space-md:  clamp(1rem,    0.8rem + 1.2vw, 2rem);
+  --space-lg:  clamp(1.5rem,  1.2rem + 1.8vw, 3rem);
+  --space-xl:  clamp(2rem,    1.6rem + 2.4vw, 4rem);
+  --space-2xl: clamp(3rem,    2.4rem + 3.6vw, 6rem);
+
+  /* Scroll Margins (for anchor links) */
+  --spacing-scroll-margin-default: 5rem;
+  --spacing-scroll-margin-mobile: 4rem;
+  --spacing-scroll-margin-actions: 4rem;
+
+  // ===========================================================================
+  // SHAPE & RADIUS TOKENS
+  // ===========================================================================
+
+  /* Border Radius - Static Scale */
+  --radius-sm:   0.25rem;  /* 4px */
+  --radius-md:   0.5rem;   /* 8px */
+  --radius-lg:   0.75rem;  /* 12px */
+  --radius-xl:   1rem;     /* 16px */
+  --radius-xxl:  1.5rem;   /* 24px */
+  --radius-xxxl: 2rem;     /* 32px */
+  --radius-full: 9999px;   /* Pill-shaped */
+
+  /* Border Radius - Responsive/Component */
+  --border-radius-none: 0;
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 0.75rem;
+  --border-radius-xl: 1rem;
+  --border-radius-xxl: 1.5rem;
+  --border-radius-xxxl: 2rem;
+
+  /* Component-specific Border Radius */
+  --theme-border-radius: clamp(4px, 1vw, 8px);
+  --theme-border-radius-lg: clamp(8px, 2vw, 16px);
+
+  // ===========================================================================
+  // SHADOW TOKENS
+  // ===========================================================================
+
+  /* Material Design 3 Shadow Elevation */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+  /* Theme-specific Shadows */
+  --theme-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  --theme-shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --theme-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+  /* Material Elevation Shadows (Material Design 3) */
+  --theme-app-shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  --theme-app-shadow-2: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --theme-app-shadow-3: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+  // ===========================================================================
+  // LAYOUT & SIZE TOKENS
+  // ===========================================================================
+
+  /* Container Max-widths (Breakpoint-aligned) */
+  --container-max-width-sm:  540px;
+  --container-max-width-md:  720px;
+  --container-max-width-lg:  992px;
+  --container-max-width-xl:  1200px;
+  --container-max-width-xxl: 1400px;
+
+  /* Material Design 3 aligned layout tokens (aliases) */
+  --mat-container-max-width-sm: var(--container-max-width-sm);
+  --mat-container-max-width-md: var(--container-max-width-md);
+  --mat-container-max-width-lg: var(--container-max-width-lg);
+  --mat-container-max-width-xl: var(--container-max-width-xl);
+  --mat-container-max-width-xxl: var(--container-max-width-xxl);
+
+  --mat-layout-max-width-xs: 640px;
+  --mat-layout-max-width-sm: 800px;
+  --mat-layout-max-width-md: 1024px;
+  --mat-layout-max-width-lg: 1200px;
+  --mat-layout-max-width-full: 1280px;
+  --mat-layout-max-width-page: 900px;
+
+  --mat-card-min-width-sm: 350px;
+  --mat-card-min-width-md: 450px;
+  --mat-card-min-width-lg: 900px;
+  --mat-card-min-width-footer: 240px;
+  --mat-card-min-width-footer-md: 220px;
+  --mat-card-max-width-form: 420px;
+
+  --mat-container-padding: 1rem;
+  --mat-container-full-height: 100vh;
+  --mat-container-full-height-dynamic: 100dvh;
+  --mat-blur-md: 10px;
+
+  --mat-max-width-dialog: 500px;
+  --mat-max-height-dialog: 80vh;
+  --mat-width-dialog: 90%;
+  --mat-width-dialog-sm: 95%;
+
+  --mat-min-height-content: 60vh;
+  --mat-min-height-content-sm: 50vh;
+  --mat-min-height-container: 400px;
+  --mat-min-height-container-sm: 300px;
+
+  --mat-grid-column-width-label: 120px;
+
+  --mat-outline-width: 2px;
+  --mat-outline-width-thick: 3px;
+  --mat-outline-offset: 2px;
+
+  --mat-icon-size-sm: 24px;
+  --mat-icon-size-md: 32px;
+  --mat-icon-size-lg: 48px;
+  --mat-icon-size-xl: 64px;
+  --mat-icon-size-2xl: 80px;
+
+  --mat-avatar-size: 120px;
+  --mat-avatar-size-sm: 100px;
+
+  --mat-keyboard-shortcut-background: #f5f5f5;
+  --mat-keyboard-shortcut-padding: 0.25rem 0.5rem;
+  --mat-keyboard-shortcut-border-radius: 0.25rem;
+  --mat-keyboard-shortcut-font-size: 0.875rem;
+  --mat-keyboard-shortcut-font-weight: 600;
+  --mat-keyboard-shortcut-line-height: 1.6;
+
+  --mat-tab-width-sm: 60px;
+  --mat-tab-width-md: 80px;
+  --mat-tab-width-lg: 120px;
+
+  --mat-form-element-height: 40px;
+
+  --mat-width-full: 100%;
+  --mat-width-half-plus: 48%;
+  --mat-width-quarter: 24%;
+  --mat-grid-min-width-md: 18.75rem;
+
+  /* Component Container Sizes */
+  --theme-container-max-width: min(1200px, calc(100vw - 2rem));
+  --theme-container-padding: var(--space-sm);
+  --theme-container-padding-sm: var(--space-md);
+  --theme-container-padding-lg: var(--space-lg);
+
+  /* Touch Target Sizes (Accessibility - WCAG) */
+  --size-touch-target-min: 44px;
+  --size-touch-target-mobile-min: 48px;
+  --size-touch-target-recommended: 48px;
+
+  /* Focus Indicators */
+  --size-focus-outline-width: 3px;
+  --size-focus-outline-offset: 2px;
+
+  /* Opacity */
+  --opacity-90: 0.9;
+
+  // ===========================================================================
+  // BREAKPOINTS & VIEWPORTS
+  // ===========================================================================
+
+  /* Breakpoint Tokens */
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-xxl: 1400px;
+
+  /* Viewport Names (semantic aliases) */
+  --viewport-mobile: 768px;
+  --viewport-tablet: 992px;
+  --viewport-desktop: 1200px;
+  --viewport-wide: 1600px;
+
+  // ===========================================================================
+  // MOTION & TIMING TOKENS
+  // ===========================================================================
+
+  /* Timing Durations */
+  --timing-transition-standard: 300ms;
+  --timing-transition-fast: 150ms;
+  --timing-transition-slow: 500ms;
+  --timing-tooltip-delay: 500ms;
+
+  /* Theme Transitions (with Material easing) */
+  --theme-transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);      /* Standard decelerate */
+  --theme-transition-standard: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);   /* Standard */
+
+  /* Material Design 3 Timing Functions */
+  --theme-app-timing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --theme-app-timing-decelerate: cubic-bezier(0, 0, 0.2, 1);
+  --theme-app-timing-accelerate: cubic-bezier(0.4, 0, 1, 1);
+
+  // ===========================================================================
+  // COMPONENT THEME TOKENS
+  // (Uses Material Design 3 system tokens from material-bridge.scss)
+  // ===========================================================================
+
+  /* Header Component */
+  --theme-header-bg: var(--mat-sys-surface-container);
+  --theme-header-color: var(--mat-sys-on-surface);
+  --theme-header-border: var(--mat-sys-outline-variant);
+  --theme-header-height: clamp(56px, 15vw, 64px);
+
+  /* Footer Component */
+  --theme-footer-bg: var(--mat-sys-surface-container-low);
+  --theme-footer-color: var(--mat-sys-on-surface-variant);
+  --theme-footer-border: var(--mat-sys-outline-variant);
+
+  /* Card Component */
+  --theme-card-bg: var(--mat-sys-surface-container-low);
+  --theme-card-color: var(--mat-sys-on-surface);
+  --theme-card-border: var(--mat-sys-outline-variant);
+  --theme-card-padding: var(--space-md);
+
+  /* Interactive States */
+  --theme-hover-bg: var(--mat-sys-surface-container-high);
+  --theme-hover-opacity: 0.08;
+  --theme-focus-color: var(--mat-sys-primary);
+  --theme-focus-width: 2px;
+  --theme-focus-offset: 2px;
+  --theme-focus-opacity: 0.12;
+  --theme-selected-opacity: 0.12;
+
+  /* Text Colors (Material system) */
+  --theme-text-primary: var(--mat-sys-on-surface);
+  --theme-text-secondary: var(--mat-sys-on-surface-variant);
+  --theme-font-weight-medium: 500;
+  --theme-font-weight-normal: 400;
+
+  /* Grid & Layout */
+  --theme-grid-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  --theme-grid-gap: var(--space-md);
+
+  /* Surface Variants */
+  --theme-surface-bg: var(--mat-sys-surface);
+  --theme-surface-color: var(--mat-sys-on-surface);
+  --theme-surface-variant-bg: var(--mat-sys-surface-variant);
+  --theme-surface-variant-color: var(--mat-sys-on-surface-variant);
+  --theme-primary-surface-bg: var(--mat-sys-primary-container);
+  --theme-primary-surface-color: var(--mat-sys-on-primary-container);
+
+  /* App Surface (Material) */
+  --theme-app-surface: var(--mat-sys-surface);
+  --theme-app-surface-variant: var(--mat-sys-surface-variant);
+  --theme-app-primary-container: var(--mat-sys-primary-container);
+
+  /* Shape Tokens */
+  --theme-app-border-radius: 0.5rem;
+  --theme-app-border-radius-large: 1rem;
+}

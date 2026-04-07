@@ -1,0 +1,576 @@
+// =============================================================================
+// VARIABLES STYLESHEET
+// Master SCSS variables for entire design system
+// Material Design 3 aligned, organized by category
+// =============================================================================
+
+// =============================================================================
+// BREAKPOINTS & RESPONSIVE DESIGN
+// =============================================================================
+
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+) !default;
+
+$breakpoint-xs: 320px;
+$breakpoint-sm: 480px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1200px;
+$breakpoint-2xl: 1400px;
+
+$media-mobile: 480px;
+$media-tablet: 768px;
+$media-desktop: 1024px;
+$media-wide: 1200px;
+
+// =============================================================================
+// TYPOGRAPHY - FONT FAMILIES
+// =============================================================================
+
+$font-family-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$font-family-mono: 'Roboto Mono', monospace;
+$font-type-1: 'Rubik', sans-serif;
+$font-type-2: 'Manrope', sans-serif;
+$font-family-poppins: 'Poppins', sans-serif;
+
+// =============================================================================
+// TYPOGRAPHY - FONT SIZES
+// Scale: xs (10px) to 6xl (96px)
+// =============================================================================
+
+$font-size-base: 16px; // 16px
+$font-size-xs: 10px; // 10px
+$font-size-sm: 14px; // 14px
+$font-size-md: 20px; // 20px
+$font-size-lg: 28px; // 28px
+$font-size-xl: 32px; // 32px
+$font-size-2xl: 40px; // 40px
+$font-size-3xl: 48px; // 48px
+$font-size-4xl: 64px; // 64px
+$font-size-5xl: 5rem; // 80px
+$font-size-6xl: 6rem; // 96px
+
+// Component-specific sizes
+$font-size-component: 14px;
+$font-size-title: 28px;
+$font-size-heading-lg: 22px;
+$font-size-heading-md: 18px;
+$font-size-heading-sm: 16px;
+$font-size-subtitle: 14px;
+$font-size-caption: 12px;
+$font-size-button: 16px;
+$font-size-banner-description: 1.125rem; // 18px
+$font-size-2xl-custom: 1.5rem; // 24px
+$font-size-header-title: $font-size-md;
+
+// =============================================================================
+// TYPOGRAPHY - FONT WEIGHTS
+// Scale: 100 (thin) to 900 (black)
+// =============================================================================
+
+$font-weight-thin: 100;
+$font-weight-extralight: 200;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
+$font-weight-black: 900;
+
+// =============================================================================
+// TYPOGRAPHY - LINE HEIGHTS
+// =============================================================================
+
+$line-height-none: 1;
+$line-height-tight: 1.2;
+$line-height-snug: 1.375;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.625;
+$line-height-loose: 2;
+$line-height-x-tight: 1.1;
+$line-height-brand-name: 1.2;
+
+// =============================================================================
+// TYPOGRAPHY - LETTER SPACING
+// =============================================================================
+
+$letter-spacing-tighter: -0.5px;
+$letter-spacing-tight: -0.025em;
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 0.025em;
+$letter-spacing-wider: 0.05em;
+$letter-spacing-widest: 0.1em;
+$letter-spacing-wide-px: 0.5px;
+
+// =============================================================================
+// UNIFIED SPACING SCALE (COMPACT)
+// Base: 4px (1 unit), scaling up efficiently for minimal footprint
+// All padding/margin/gap use this unified scale
+// =============================================================================
+
+$space-xxxs: 0.0625rem; // 1px
+$space-xxs: 0.125rem;   // 2px
+$space-xs: 0.25rem;     // 4px
+$space-sm: 0.5rem;      // 8px
+$space-base: 0.75rem;   // 12px
+$space-md: 1rem;        // 16px
+$space-lg: 1.25rem;     // 20px (reduced from 24px)
+$space-xl: 1.5rem;      // 24px (reduced from 32px)
+$space-2xl: 2rem;       // 32px (reduced from 40px)
+$space-3xl: 2.5rem;     // 40px
+$space-4xl: 4rem;       // 64px (reduced from 80px)
+
+// Unified aliases (no redundancy - single source of truth)
+$padding-sm: $space-sm;
+$padding-md: $space-md;
+$padding-lg: $space-lg;
+$padding-xl: $space-xl;
+
+$margin-xs: $space-xs;
+$margin-sm: $space-sm;
+$margin-md: $space-md;
+$margin-lg: $space-lg;
+$margin-xl: $space-xl;
+
+$gap-xs: $space-xs;
+$gap-sm: $space-sm;
+$gap-md: $space-base;
+$gap-lg: $space-md;
+$gap-xl: $space-lg;
+
+// Component-specific (derived from base scale)
+$section-padding: $space-xl;     // 24px
+$section-gap: $space-md;         // 16px
+$component-padding-xs: $space-sm;
+$component-padding-sm: $space-base;
+$component-padding-md: $space-md;
+$component-padding-lg: $space-lg;
+$spacing-scroll-margin: $space-lg;
+
+// =============================================================================
+// SHAPE & RADIUS
+// =============================================================================
+
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-pill: 9999px;
+// =============================================================================
+// COLOR SYSTEM - SEMANTIC COLORS
+// Primary, secondary, accent, success, warning, error, info
+// =============================================================================
+
+// Brand colors
+$color-primary: #0f0f36; // Deep navy blue
+$color-secondary: #007bff; // Blue
+$color-accent: #ff4081; // Pink
+$color-gradient-secondary: #764ba2; // Purple accent for gradients
+
+// Text colors
+$color-text-primary: #16162e; // Dark text
+$color-text-secondary: #4a4a82; // Secondary text
+$color-text-dark: $color-text-primary;
+$color-text-light: white;
+$color-text-on-dark: white;
+$color-text-dark-grey: #4E5969;
+$color-text-medium-grey: #86909C;
+$color-text-shadow-dark: rgba(0, 0, 0, 0.7);
+
+// Status colors
+$color-success: #4caf50;
+$color-warning: #ff9800;
+$color-error: #f44336;
+$color-info: #2196f3;
+
+// Status containers (background + text pairs)
+$color-success-container: #d4edda;
+$color-on-success-container: #155724;
+$color-error-container: #f8d7da;
+$color-on-error-container: #721c24;
+$color-warning-container: #fff3cd;
+$color-warning-dark: #856404;
+$color-info-container: #d1ecf1;
+$color-info-dark: #0c5460;
+
+// Background & surface colors
+$color-surface: #ffffff;
+$color-surface-container: #f0f0f0;
+$color-surface-container-low: #f8f8f8;
+$color-background-light: #f8f8fc;
+$color-background-light-gray: #e8e8f5;
+$color-background-lightest: #FAFBFC;
+$color-background-light-blue: #F5F8FF;
+$color-background-dark: #303030;
+$color-bg-primary-dark: #1e1e1e;
+$color-dark-bg: #424242;
+
+// Border colors
+$color-border-light-grey: #E5E6EB;
+$color-border-light: #e0e0e0;
+$color-border-dark: rgba(0, 0, 0, 0.06);
+$color-border-grey: grey;
+$color-outline-variant: #bdbdbd;
+
+// Highlight colors
+$color-highlight-red: #a94646;
+$color-highlight-blue: #3700ff;
+$color-interactive-blue: #4080FF;
+
+// Primary color variants
+$color-primary-light: #8585ac;
+$color-primary-dark: #303058;
+$color-primary-25: #f8f8fc;
+$color-primary-50: #e0e0eb;
+$color-primary-100: #c2c2d6;
+$color-primary-200: #a3a3c1;
+$color-primary-300: #8585ac;
+$color-primary-400: #666697;
+$color-primary-500: #4a4a82;
+$color-primary-600: #3d3d6d;
+$color-primary-700: #303058;
+$color-primary-800: #232343;
+$color-primary-900: #16162e;
+
+// Neutral/Gray colors
+$color-gray-50: #f9fafb;
+$color-gray-100: #f3f4f6;
+$color-gray-200: #e5e7eb;
+$color-gray-300: #d1d5db;
+$color-gray-400: #9ca3af;
+$color-gray-500: #6b7280;
+$color-gray-600: #4b5563;
+$color-gray-700: #374151;
+$color-gray-800: #1f2937;
+$color-gray-900: #111827;
+
+// Additional accent colors
+$color-accent-light: #ff8ab5;
+$color-accent-dark: #d91e5f;
+$color-yellow-accent: #fed304;
+$color-pink-accent: #f093fb;
+$color-green-accent: #48bb78;
+$color-blue-accent: #3700ff;
+
+// Material secondary colors
+$color-on-secondary: white;
+
+// Dark theme colors
+$color-divider-dark: rgba(255, 255, 255, 0.12);
+$color-text-dark-overlay: rgba(0, 0, 0, 0.6);
+$color-text-dark-overlay-light: rgba(255, 255, 255, 0.6);
+$color-hover-overlay: rgba(0, 0, 0, 0.08);
+
+// Status color light variants
+$color-success-light: #c3e6cb;
+$color-success-dark: #155724;
+$color-error-light: #fcc;
+$color-error-dark: #721c24;
+$color-warning-light: #fff3cd;
+$color-info-light: #d1ecf1;
+
+// =============================================================================
+// TRANSPARENCY & OPACITY
+// =============================================================================
+
+$opacity-0: 0;
+$opacity-25: 0.25;
+$opacity-50: 0.5;
+$opacity-75: 0.75;
+$opacity-100: 1;
+
+$hover-opacity: 0.08;
+$active-opacity: 0.12;
+$disabled-opacity: 0.5;
+
+$button-bg-dark-transparent: rgba(0, 0, 0, 0.4);
+$button-bg-dark-hover-transparent: rgba(0, 0, 0, 0.6);
+$button-bg-light-hover-transparent: rgba(255, 255, 255, 0.2);
+$border-light-transparent: rgba(255, 255, 255, 0.3);
+
+// Color overlays & tints
+$overlay-light: rgba(255, 255, 255, 0.1);
+$overlay-dark: rgba(0, 0, 0, 0.5);
+$overlay-hover: rgba(0, 0, 0, 0.04);
+$overlay-active: rgba(0, 0, 0, 0.08);
+$overlay-disabled: rgba(0, 0, 0, 0.12);
+
+// Gradient transparents (legacy)
+$gradient-purple-transparent: #bdbdbd;
+$gradient-yellow-transparent: #caca5c;
+$gradient-dark-blue-transparent: #4747a6;
+
+// =============================================================================
+// UNIFIED TRANSITIONS & ANIMATIONS (COMPACT)
+// Faster interactions for better responsiveness
+// =============================================================================
+
+$transition-speed: 0.25s;
+$transition-speed-fast: 0.15s;
+$transition-fast: 0.15s;
+$transition-base: 0.25s;
+$transition-slow: 0.4s;
+
+$animation-duration-short: 0.15s;
+$animation-duration-base: 0.25s;
+$animation-duration-long: 0.4s;
+
+// =============================================================================
+// DIMENSIONS & SIZES
+// Icon sizes, heights, widths for components
+// =============================================================================
+
+// Icon sizes
+$icon-size-xs: 16px;
+$icon-size-sm: 24px;
+$icon-size-small: 32px; // Legacy
+$icon-size-md: 32px;
+$icon-size-lg: 48px;
+$icon-size-xl: 64px;
+$icon-size-2xl: 80px;
+$icon-size-3xl: 120px;
+$mat-icon-size-sm: 1.25em;
+$page-action-icon-size: 20px;
+
+// Button heights (unified to 3 sizes)
+$height-button: 44px;      // Standard
+$height-button-sm: 36px;   // Small
+$height-button-lg: 52px;   // Large
+$button-action-transition: 0.25s ease; // Faster transitions
+
+// Input/form heights
+$height-input: 40px;
+$height-input-lg: 48px;
+$form-element-height: 40px;
+$form-element-padding: $space-sm $space-base;
+$list-item-height: 40px;
+
+// Avatar sizes (reduced from 120px)
+$height-avatar: 100px;
+$height-avatar-sm: 80px;
+$height-avatar-lg: 100px;
+$width-avatar: 100px;
+$width-avatar-sm: 80px;
+
+// Header & layout
+$header-height: 64px;
+$header-height-mobile: 56px;
+$pdt: 80px; // Reduced from 90px
+
+// Container sizes
+$container-max-width-xl: 1200px;
+$container-max-width-lg: 1400px;
+$container-max-width-sm: 640px;
+$container-padding: $space-md; // 16px
+
+// Layout widths & max-widths
+$layout-max-width-xs: 640px;
+$layout-max-width-sm: 800px;
+$layout-max-width-md: 1024px;
+$layout-max-width-lg: 1200px;
+$layout-max-width-full: 1280px;
+$layout-max-width-page: 900px;
+$layout-padding-xs: $space-sm;
+$layout-padding-sm: $space-md;
+$layout-padding-md: $space-lg;
+$layout-padding-lg: $space-xl;
+
+// Card sizes (compact)
+$card-min-width-sm: 300px;
+$card-min-width-md: 400px;
+$card-min-width-lg: 800px;
+$card-min-width-footer: 220px;
+$card-min-width-footer-md: 200px;
+$card-max-width-form: 400px;
+
+// Modal/dialog sizes
+$modal-width-sm: 320px;
+$modal-width-md: 480px;
+$modal-width-lg: 750px;
+$modal-width-xl: 950px;
+$max-width-dialog: 480px;
+$max-height-dialog: 80vh;
+
+// Width utilities
+$width-full: 100%;
+$width-half-plus: 48%;
+$width-quarter: 24%;
+$width-dialog: 90%;
+$width-dialog-sm: 95%;
+$width-icon-circle: 60px;
+$width-phone-mockup: 320px;
+$width-tablet-mockup: 600px;
+
+// Height utilities
+$container-full-height: 100vh;
+$container-full-height-dynamic: 100dvh;
+$container-half-height: 50vh;
+$min-height-content: 60vh;
+$min-height-content-sm: 50vh;
+$min-height-container: 400px;
+$min-height-container-sm: 300px;
+
+// Component heights (compact)
+$height-loading-state: 350px;
+$height-error-state: 450px;
+$error-icon-wrapper-size: 70px;
+$error-icon-size: 2.5rem;
+
+// Banner heights
+$banner-height-desktop: 65vh;
+$banner-height-tablet: 55vh;
+$banner-height-mobile: 45vh;
+
+// Phone/device frame dimensions
+$phone-frame-width: 320px;
+$phone-frame-height: 720px;
+$phone-frame-border-width: 8px;
+$phone-frame-border-radius: 35px;
+
+// Grid dimensions
+$grid-column-width-label: 100px;
+$grid-min-width-sm: 17rem;
+$grid-min-width-md: 18rem;
+$grid-min-width-lg: 15rem;
+
+// Tab sizes (unified)
+$tab-min-width: 80px;
+$tab-min-width-sm: 60px;
+$tab-min-width-lg: 100px;
+
+// Focus/outline
+$focus-ring-width: 2px;
+$focus-ring-color: #4080FF;
+$focus-ring-offset: 2px;
+$outline-width: 2px;
+$outline-offset: 2px;
+
+// Effects
+$blur-md: 8px;
+
+// =============================================================================
+// SHADOW & ELEVATION TOKENS
+// Material Design 3 elevation shadows - single source of truth
+// =============================================================================
+
+$shadow-none: none;
+$shadow-1: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px rgba(0, 0, 0, 0.15);
+$shadow-2: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 4px 3px rgba(0, 0, 0, 0.15);
+$shadow-3: 0px 1px 3px rgba(0, 0, 0, 0.3), 0px 8px 9px rgba(0, 0, 0, 0.15);
+$shadow-4: 0px 2px 4px rgba(0, 0, 0, 0.3), 0px 12px 12px rgba(0, 0, 0, 0.15);
+$shadow-5: 0px 4px 8px rgba(0, 0, 0, 0.3), 0px 16px 24px rgba(0, 0, 0, 0.15);
+
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+// =============================================================================
+// GRADIENTS
+// =============================================================================
+
+$gradient-primary: linear-gradient(135deg, #0f0f36 0%, #7986cb 100%);
+$gradient-secondary: linear-gradient(135deg, #4080FF 0%, #764ba2 100%);
+$gradient-success: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+$gradient-warning: linear-gradient(90deg, #fed304 0%, #732973 100%, #f093fb 100%);
+$gradient-error: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+
+// Legacy gradient backgrounds
+$header-bg: linear-gradient(#001320 5%, #00182952 70%, #00182900 100%);
+$bg-colorOffSet: linear-gradient(hwb(200 6% 89%) 5%, #2b3a4452 70%, #58b7fc00 100%);
+
+// =============================================================================
+// MATERIAL DESIGN 3 TYPOGRAPHY SCALE (Consolidated)
+// Unified MD3 typography aligned with Material Bridge
+// Use these instead of component-specific sizes for consistency
+// =============================================================================
+
+// MD3 Standard Scale (from consolidated auth-shared)
+$md3-font-size-xs: 0.75rem;       // 12px - Label
+$md3-font-size-sm: 0.875rem;      // 14px - Body Small
+$md3-font-size-md: 1rem;          // 16px - Body
+$md3-font-size-lg: 1.125rem;      // 18px - Title Small
+$md3-font-size-xl: 1.25rem;       // 20px - Title Medium
+$md3-font-size-2xl: 1.5rem;       // 24px - Title Large
+$md3-font-size-3xl: 2rem;         // 32px - Headline Small
+$md3-font-size-4xl: 2.25rem;      // 36px - Headline Medium
+
+// =============================================================================
+// LEGACY VARIABLES (DEPRECATED - Use above categories)
+// Maintained for backward compatibility
+// =============================================================================
+
+$bg-color: #051622;
+$color1: #767676;
+$color2: rgb(254, 211, 4);
+$color3: #732973;
+$color4: #ffffff;
+$bg-layer: rgba(5, 22, 34, 0.5);
+
+$status-bar-color: #1a202c;
+$header-border-color: #e0e0e0;
+
+$keyboard-shortcut-background: #f5f5f5;
+$keyboard-shortcut-padding: 0.25rem 0.5rem;
+$keyboard-shortcut-border-radius: 0.25rem;
+$keyboard-shortcut-font-size: 0.875rem;
+$keyboard-shortcut-font-weight: 600;
+$keyboard-shortcut-line-height: 1.6;
+
+// =============================================================================
+// SCSS MAPS & GROUPED VARIABLES
+// Pre-computed maps for iteration and dynamic class generation
+// =============================================================================
+
+$font-weights: (
+  thin: 100,
+  extralight: 200,
+  light: 300,
+  regular: 400,
+  medium: 500,
+  semibold: 600,
+  bold: 700,
+  extrabold: 800,
+  black: 900
+);
+
+// Font Size Map
+$font-sizes: (
+  xs: 0.625rem,     // 10px
+  sm: 0.875rem,     // 14px
+  base: 1rem,       // 16px
+  md: 1.25rem,      // 20px
+  lg: 1.75rem,      // 28px
+  xl: 2rem,         // 32px
+  '2xl': 2.5rem,    // 40px
+  '3xl': 3rem,      // 48px
+  '4xl': 4rem,      // 64px
+  '5xl': 5rem,      // 80px
+  '6xl': 6rem       // 96px
+);
+
+// Line Height Map
+$line-heights: (
+  none: 1,
+  tight: 1.25,
+  snug: 1.375,
+  normal: 1.5,
+  relaxed: 1.625,
+  loose: 2
+);
+
+// Letter Spacing Map
+$letter-spacings: (
+  tighter: -0.05em,
+  tight: -0.025em,
+  normal: 0,
+  wide: 0.025em,
+  wider: 0.05em,
+  widest: 0.1em
+);

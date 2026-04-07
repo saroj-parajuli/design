@@ -1,0 +1,34 @@
+// Default Material-style CSS custom properties for SPSDESIGN consumers.
+// Projects can override these variables from their app theme layer.
+
+:root {
+  --mat-sys-primary: #115A95;
+  --mat-sys-on-primary: #ffffff;
+  --mat-sys-primary-container: #d7e8f7;
+  --mat-sys-on-primary-container: #0b2f4d;
+
+  --mat-sys-secondary: #dc004e;
+  --mat-sys-on-secondary: #ffffff;
+  --mat-sys-secondary-container: #ffd9e2;
+  --mat-sys-on-secondary-container: #5d1128;
+
+  --mat-sys-surface: #ffffff;
+  --mat-sys-surface-dim: #f1f4f7;
+  --mat-sys-surface-variant: #edf1f5;
+  --mat-sys-surface-container: #f7f9fb;
+  --mat-sys-surface-container-low: #fbfcfe;
+  --mat-sys-surface-container-high: #e7edf2;
+  --mat-sys-on-surface: #1b1f23;
+  --mat-sys-on-surface-variant: #55616d;
+  --mat-sys-outline: #8a98a8;
+  --mat-sys-outline-variant: #c3ccd5;
+
+  --mat-primary-main: #115A95;
+  --mat-primary-100: #d7e8f7;
+  --mat-primary-600: #0d4776;
+  --mat-accent-main: #dc004e;
+  --mat-accent-dark: #9a0036;
+  --mat-warn-main: #f44336;
+
+  --mat-sys-corner-small: 4px;
+}
